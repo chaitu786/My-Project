@@ -3,9 +3,11 @@ const mongoose = require("mongoose")
 const app = express()
 const server = require("http").Server(app)
 const dotenv = require("dotenv").config();
+const { UserRouter } = require("./routes/User.Routes")
 
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
+app.use("/",UserRouter)
 
 const MongoDb = process.env.MongoDb
 const PORT = process.env.PORT || 8080

@@ -7,8 +7,40 @@ const FarmerSchema = new Schema(
         password : String,
         mail : String,
         mobile : Number,
-        Problems : [
-            {  }
-        ]
-    }
+        data : [
+            { 
+                productId: Schema.Types.ObjectId
+            }
+        ],
+        role:{
+            type:String,
+            enum:["Farmer","Admin"]
+        }
+    },
+    { collection : "farmerData" }
 )
+
+const AdminSchema = new Schema(
+    {
+        name:String,
+        username : String,
+        password : String,
+        mail : String,
+        mobile : Number,
+        data : [
+            { 
+                productId: Schema.Types.ObjectId
+            }
+        ],
+        role:{
+            type:String,
+            enum:["Farmer","Admin"]
+        }
+    },
+    { collection : "adminData" }
+)
+
+const FarmerModel = model( "FarmerModel", FarmerSchema , "farmerData")
+const AdminModel = model( "AdminModel", AdminSchema , "adminData")
+
+module.exports = { FarmerModel, AdminModel };
