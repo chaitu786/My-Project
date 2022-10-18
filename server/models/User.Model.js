@@ -7,6 +7,7 @@ const FarmerSchema = new Schema(
         password : String,
         mail : String,
         mobile : Number,
+        hash:String,
         data : [
             { 
                 productId: Schema.Types.ObjectId
@@ -27,6 +28,7 @@ const AdminSchema = new Schema(
         password : String,
         mail : String,
         mobile : Number,
+        hash:String,
         data : [
             { 
                 productId: Schema.Types.ObjectId
